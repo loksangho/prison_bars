@@ -1,0 +1,57 @@
+<html>
+
+<body>
+	<div class="image">
+		<canvas crossOrigin="Anonymous" width="2119px" height="2195px" id="canvas"></canvas>
+	</div>
+	<script>
+	let params = (new URL(document.location)).searchParams;
+	let url = params.get("url");
+	console.log(url);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+
+	var img1 = loadImage(url, main);
+	img1.setAttribute('crossOrigin', 'anonymous');
+	var img2 = loadImage('./prison_bars.png', main);
+	img2.setAttribute('crossOrigin', 'anonymous');
+
+
+	var imagesLoaded = 0;
+
+	function main() {
+	    imagesLoaded += 1;
+
+	    if(imagesLoaded == 2) {
+	        // composite now
+	        ctx.drawImage(img1, 0, 0);
+	        //ctx.globalAlpha = 0.5;
+	        ctx.drawImage(img2, 0, 0, img1.width, img1.height);
+	    }
+	}
+
+	function loadImage(src, onload) {
+	    var img = new Image();
+	    img.onload = onload;
+	    img.src = src;
+	    return img;
+	}
+
+		
+	var canvas = document.getElementById("canvas");
+	var image = canvas.toDataURL();
+	//var aLink = document.createElement('a');
+	//var evt = document.createEvent("HTMLEvents");
+	//evt.initEvent("load");
+	//aLink.download = 'image.png';
+	//aLink.href = image;
+	//aLink.dispatchEvent(evt);
+	
+
+	
+
+	</script>
+</body>
+
+</html>
+
