@@ -39,11 +39,16 @@
 
 		
 	var canvas = document.getElementById("canvas");
-	var image = canvas.toDataURL();
+	//var image = canvas.toDataURL();
 	//var aLink = document.createElement('a');
-	var evt = new Event("look", {"bubbles":true, "cancelable":false});
-	document.dispatchEvent(evt);
-	window.location.href = image;
+	//var evt = new Event("look", {"bubbles":true, "cancelable":false});
+	//document.dispatchEvent(evt);
+	//window.location.href = image;
+	0
+
+
+	var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); 
+	window.location.href=image;
 	//aLink.download = 'image.png';
 	//aLink.href = image;
 	//aLink.dispatchEvent(evt);
