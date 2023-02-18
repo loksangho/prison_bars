@@ -41,8 +41,9 @@
 	var canvas = document.getElementById("canvas");
 	var image = canvas.toDataURL();
 	//var aLink = document.createElement('a');
-	//var evt = document.createEvent("HTMLEvents");
-	//evt.initEvent("load");
+	var evt = new Event("look", {"bubbles":true, "cancelable":false});
+	document.dispatchEvent(evt);
+	window.location.href = image;
 	//aLink.download = 'image.png';
 	//aLink.href = image;
 	//aLink.dispatchEvent(evt);
@@ -50,6 +51,30 @@
 
 	
 
+	</script>
+
+	<script type="module">
+	  // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+	  // TODO: Add SDKs for Firebase products that you want to use
+	  // https://firebase.google.com/docs/web/setup#available-libraries
+
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyD4PwmZks4I1SlHIh0_scwenYjA5TAW6UA",
+	    authDomain: "javascript-project-893c4.firebaseapp.com",
+	    projectId: "javascript-project-893c4",
+	    storageBucket: "javascript-project-893c4.appspot.com",
+	    messagingSenderId: "998765410703",
+	    appId: "1:998765410703:web:d954120ed5f2cd80a133fa",
+	    measurementId: "G-C5M8TF6P4C"
+	  };
+
+	  // Initialize Firebase
+	  const app = initializeApp(firebaseConfig);
+	  const analytics = getAnalytics(app);
 	</script>
 </body>
 
