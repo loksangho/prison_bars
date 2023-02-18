@@ -44,11 +44,23 @@
 	//var evt = new Event("look", {"bubbles":true, "cancelable":false});
 	//document.dispatchEvent(evt);
 	//window.location.href = image;
-	0
-
+	var url;
 
 	var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); 
-	window.location.href=image;
+	
+	//load & setup loading animation
+	//then generate and submit form with a slight delay
+	setTimeout(function(){
+	  var new_form;
+	  new_form = document.createElement('form');
+	  new_form.method = 'GET';
+	  new_form.action = url;
+	  document.body.appendChild(new_form);
+	  new_form.submit();
+	}, 100)
+
+
+	
 	//aLink.download = 'image.png';
 	//aLink.href = image;
 	//aLink.dispatchEvent(evt);
